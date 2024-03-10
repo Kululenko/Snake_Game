@@ -4,6 +4,9 @@ ALIGNMENT = "left"
 FONT = ("Arial", 16, "normal")
 
 
+
+    
+
 class Scoreboard(Turtle):
 
     def __init__(self):
@@ -13,7 +16,8 @@ class Scoreboard(Turtle):
         self.color("white")
         self.hideturtle()
         self.score_points = 0
-        self.highscore = 0
+        with open("data.txt") as data:
+            self.highscore = int(data.read())
         self.update_scoreboard()
         
     def update_scoreboard(self):
@@ -22,8 +26,8 @@ class Scoreboard(Turtle):
 
     def reset(self):
         if self.score_points > self.highscore:
-            with open("data.txt",mode="w") as highscore:
-                highscore.write(self.score_points)
+            with open("data.txt",mode="w") as score:
+                score.write(str(self.score_points))
 
         self.score_points = 0
     
