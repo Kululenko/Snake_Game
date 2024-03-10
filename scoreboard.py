@@ -30,7 +30,7 @@ class Scoreboard(Turtle):
                 score.write(str(self.score_points))
 
         self.score_points = 0
-    
+        self.update_scoreboard()
     
     
     #def game_over(self):
